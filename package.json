@@ -1,0 +1,23 @@
+{
+  "name": "aninamesbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Polykrovka/AniNamesBot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Polykrovka/AniNamesBot/issues"
+  },
+  "homepage": "https://github.com/Polykrovka/AniNamesBot#readme",
+  "dependencies": {
+    "node-telegram-bot-api": "^0.60.0"
+  }
+}
