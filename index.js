@@ -13,7 +13,7 @@ let rawdata = fs.readFileSync('names.json');
 let names = JSON.parse(rawdata);
 
 bot.onText(/\имя (.+)/, function (msg, match) {
-  const userId = msg.from.id;
+  const userId = msg.chat.id;
   let text = match[1].trim();
 
   text = text[0].toUpperCase() + text.substring(1);
@@ -31,7 +31,7 @@ bot.onText(/\имя (.+)/, function (msg, match) {
 });
 
 bot.onText(/\удали/, function (msg, match) {
-  const userId = msg.from.id;
+  const userId = msg.chat.id;
 
     names.pop()
     
@@ -43,7 +43,7 @@ bot.onText(/\удали/, function (msg, match) {
 
 
 bot.onText(/\покажи/, function (msg, match) {
-  const userId = msg.from.id;
+  const userId = msg.chat.id;
   const responce = names.join('\n');
 
   bot.sendMessage(userId, `${responce}`);
