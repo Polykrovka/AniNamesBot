@@ -61,6 +61,7 @@ bot.onText(/\удали/, function (msg, match) {
 
 
 bot.on('message', (msg) => {
+  const userName = msg.from.username;
   const userId = msg.chat.id;
   let text = msg.text;
 
@@ -81,21 +82,21 @@ bot.on('message', (msg) => {
 
   for (let i of arrHuh) {
     if(text.toLowerCase().includes(i) ) {
-      if(!haha[userId]) {
-        haha[userId] = {
+      if(!haha[userName]) {
+        haha[userName] = {
           count: 0,
           countMat: 0
         }
       }
-  
-      haha[userId].count = haha[userId].count + 1;
+      
+      haha[userName].count = haha[userName].count + 1;
   
   
      let data = JSON.stringify(haha);
      fs.writeFileSync('haha.json', data);
 
      bot.sendPhoto(msg.chat.id, smileImg, {
-      caption: `Разорвало ${haha[userId].count} раз!`
+      caption: `Разорвало ${haha[userName].count} раз!`
     });
      break;
     }
@@ -106,21 +107,21 @@ bot.on('message', (msg) => {
   //counter mat
   for (let i of arrMats) {
     if(text.toLowerCase().includes(i) ) {
-      if(!haha[userId]) {
-        haha[userId] = {
+      if(!haha[userName]) {
+        haha[userName] = {
           count: 0,
           countMat: 0
         }
       }
   
-      haha[userId].countMat = haha[userId].countMat + 1;
+      haha[userName].countMat = haha[userName].countMat + 1;
   
   
      let data = JSON.stringify(haha);
      fs.writeFileSync('haha.json', data);
 
      bot.sendPhoto(msg.chat.id, capImg, {
-       caption: `ругнулся ${haha[userId].countMat} раз!`
+       caption: `ругнулся ${haha[userName].countMat} раз!`
      });
      break;
     }
