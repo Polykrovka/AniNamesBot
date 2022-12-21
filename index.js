@@ -153,7 +153,10 @@ bot.on('message', (msg) => {
           countSorry: 0,
         }
       }
-  
+
+      if(!haha[userName].arrSorry) {
+        haha[userName].arrSorry = 0;
+      }
       haha[userName].countSorry = haha[userName].countSorry + 1;
   
   
