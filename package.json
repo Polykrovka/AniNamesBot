@@ -19,5 +19,6 @@
   "homepage": "https://github.com/Polykrovka/AniNamesBot#readme",
   "dependencies": {
     "node-telegram-bot-api": "^0.60.0"
-  }
+  },
+  "type": "module"
 }
