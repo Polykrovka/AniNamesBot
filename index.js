@@ -155,5 +155,5 @@ bot.onText(/\покажи/, function (msg, match) {
 
 bot.onText(/\старт/, function (msg) {
   const chatId = msg.chat.id;
-  bot.sendMessage(chatId, 'имя \nпокажи \nудали')
+  bot.sendMessage(chatId, 'имя \nпокажи \nудали \nДимон')
 });
