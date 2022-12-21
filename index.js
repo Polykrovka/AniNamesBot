@@ -1,9 +1,10 @@
-import { arrMats, arrDaddyIssues, arrHuh, arrDimon } from './mat.js';
+import { arrMats, arrDaddyIssues, arrHuh, arrDimon, arrSorry } from './mat.js';
 import fs from 'fs';
 import TelegramBot from 'node-telegram-bot-api'
 
 const capImg = `./img/kap.jpg`;
 const smileImg = './img/smile.jpg'
+const sorryImg = './img/sorry.jpg'
 
 const dimon = './audio/bumer-dimon.mp3'
 
@@ -85,7 +86,8 @@ bot.on('message', (msg) => {
       if(!haha[userName]) {
         haha[userName] = {
           count: 0,
-          countMat: 0
+          countMat: 0,
+          countSorry: 0,
         }
       }
       
@@ -110,7 +112,8 @@ bot.on('message', (msg) => {
       if(!haha[userName]) {
         haha[userName] = {
           count: 0,
-          countMat: 0
+          countMat: 0,
+          countSorry: 0,
         }
       }
   
@@ -137,8 +140,37 @@ bot.on('message', (msg) => {
      break;
     }
   }
+  //end dimoooon
+
+  //sorry
+  
+  for (let i of arrSorry) {
+    if(text.toLowerCase().includes(i) ) {
+      if(!haha[userName]) {
+        haha[userName] = {
+          count: 0,
+          countMat: 0,
+          countSorry: 0,
+        }
+      }
+  
+      haha[userName].countSorry = haha[userName].countSorry + 1;
+  
+  
+     let data = JSON.stringify(haha);
+     fs.writeFileSync('haha.json', data);
+     bot.sendPhoto(msg.chat.id, sorryImg, {
+       caption: `Уже ${haha[userName].countSorry} извинений, хотя на тебя всё ещё никто и не обижался!`
+     });
+     break;
+    }
+  }
+  // end sorry
 
 });
+
+
+
 
 
 
