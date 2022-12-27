@@ -21,7 +21,7 @@ let names = JSON.parse(rawdata);
 let haha = JSON.parse(hahaData);
 
 
-bot.onText(/\имя (.+)/, function (msg, match) {
+bot.onText(/\/имя (.+)/, function (msg, match) {
   const userId = msg.chat.id;
   let text = match[1].trim();
 
@@ -49,7 +49,7 @@ bot.onText(/\имя (.+)/, function (msg, match) {
 
 
 
-bot.onText(/\удали/, function (msg, match) {
+bot.onText(/\/удали/, function (msg, match) {
   const userId = msg.chat.id;
 
     names.pop()
@@ -174,7 +174,7 @@ bot.on('message', (msg) => {
 
 
 
-bot.onText(/\покажи/, function (msg, match) {
+bot.onText(/\/покажи/, function (msg, match) {
   const userId = msg.chat.id;
   const responce = names.join('\n');
 
@@ -185,7 +185,7 @@ bot.onText(/\покажи/, function (msg, match) {
 
 
 
-bot.onText(/\старт/, function (msg) {
+bot.onText(/\/старт/, function (msg) {
   const chatId = msg.chat.id;
-  bot.sendMessage(chatId, 'имя \nпокажи \nудали \nДимон')
+  bot.sendMessage(chatId, '/имя \n/покажи \n/удали \nДимон')
 });
