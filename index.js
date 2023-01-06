@@ -167,6 +167,37 @@ bot.on('message', (msg) => {
   }
   // end sorry
 
+  // Cities
+
+  if(text.toLowerCase().includes('вроцлав')) {
+    if(!haha.wroclawCount) {
+      haha.wroclawCount = 1;
+    } else {
+      haha.wroclawCount = haha.wroclawCount + 1;
+    }
+    let data = JSON.stringify(haha);
+    fs.writeFileSync('haha.json', data);
+    bot.sendMessage(userId, `${haha.wroclawCount} упоминаний Вроцлава`);
+  } else if (text.toLowerCase().includes('гданьск')) {
+    if(!haha.gdanskCount) {
+      haha.gdanskCount = 1;
+    } else {
+      haha.gdanskCount = haha.gdanskCount + 1;
+    }
+    let data = JSON.stringify(haha);
+    fs.writeFileSync('haha.json', data);
+    bot.sendMessage(userId, `${haha.gdanskCount} упоминаний Гданьска`);
+  } else if (text.toLowerCase().includes('варшав')) {
+    if(!haha.warchawCount) {
+      haha.warchawCount = 1;
+    } else {
+      haha.warchawCount = haha.warchawCount + 1;
+    }
+    let data = JSON.stringify(haha);
+    fs.writeFileSync('haha.json', data);
+    bot.sendMessage(userId, `${haha.warchawCount} упоминаний Варшавы`);
+  }
+
 });
 
 
